@@ -16,14 +16,18 @@ type Example struct {
 	Name, URL string
 }
 
+var config utils.Config = utils.GetConfig()
+
 // GetDatabase returns a gorp.DbMap that can be used to query data in an sql database
 //   Allows for an entity framework (asp.net)-like interface to quering server data
 func GetDatabase() *gorp.DbMap {
-	db, err := sql.Open(utils.GetConfig().SQLDriver, utils.GetConfig().SQL)
+	db, err := sql.Open(config.SQLDriver, config.SQL)
 	if err != nil {
 		log.Fatal(err)
 	}
 
+	// change gorp.SqliteDialect to what server driver your using
+	//    https://github.com/go-gorp/gorp#database-drivers
 	dbmap := &gorp.DbMap{Db: db, Dialect: gorp.SqliteDialect{}}
 
 	// Add a table to the map, maps the Example row to the table "example",

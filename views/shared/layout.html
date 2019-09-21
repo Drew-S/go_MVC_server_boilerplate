@@ -1,0 +1,41 @@
+{{define "head"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}} &mdash; {{.Title}}</title>
+    <script src="/static/lib/popper.min.js"></script>
+    <script src="/static/lib/jquery-3.3.1.slim.min.js"></script>
+    <script src="/static/lib/bootstrap.min.js"></script>
+    <script src="/static/js/index.js" type="module"></script>
+    <link rel="stylesheet" href="/static/lib/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">{{title}}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headerNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="headerNavbar">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+            </ul>
+            <my-thing></my-thing>
+        </div>
+    </nav>
+    <div class="container">
+{{end}}
+
+
+{{define "foot"}}
+    </div>
+    <nav class="navbar fixed-bottom navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">{{title}}</a>
+    </nav>
+</body>
+</html>
+{{end}}

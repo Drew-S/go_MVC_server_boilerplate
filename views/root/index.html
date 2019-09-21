@@ -1,0 +1,28 @@
+{{template "head" .}}
+
+<div class="row">
+    <div class="col-3">
+        <img style="width: 100%; height: auto;" src="https://cdn-images-1.medium.com/max/1200/1*yh90bW8jL4f8pOTZTvbzqw.png">
+    </div>
+    <div class="col-6">
+        <h1>Golang Web Server Boilerplate</h1>
+        <h4>Golang Model, View, Controller web server.</h4>
+        <ul style="list-style-type: none;">
+            <li>Back end</li>
+            <ul style="list-style-type: none;">
+                {{range .Server}}
+                    <li><a href="{{.Url}}">{{.Name}}</a></li>
+                {{end}}
+            </ul>
+            <li>Front end</li>
+            <ul style="list-style-type: none;">
+                {{range .Front}}
+                    <li><a href="{{.Url}}">{{.Name}}</a></li>
+                {{end}}
+            </ul>
+        </ul>
+    </div>
+    <div class="col-3"></div>
+</div>
+
+{{template "foot" .}}

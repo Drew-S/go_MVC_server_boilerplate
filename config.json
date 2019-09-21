@@ -1,0 +1,9 @@
+{
+    "addr": "0.0.0.0:8080",
+    "ssl_cert_file": "",
+    "ssl_cert_key_file": "",
+    "dev": true,
+    "sql_driver": "sqlite3",
+    "sql_connect": "Database.db",
+    "name": "My Site"
+}

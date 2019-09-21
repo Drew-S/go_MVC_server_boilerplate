@@ -2,15 +2,14 @@ package utils
 
 import (
 	"encoding/json"
-	"html/template"
 	"io/ioutil"
 	"log"
-	"path"
 )
 
+// Config struct used with config.json
 type Config struct {
-	Addr        string `json:"addr"`
-	Port        string `json:"port"`
+	HTTP        string `json:"http"`
+	HTTPS       string `json:"https"`
 	CertFile    string `json:"ssl_cert_file"`
 	CertKeyFile string `json:"ssk_cert_key_file"`
 	SessionKey  string `json:"session_key"`
@@ -20,34 +19,10 @@ type Config struct {
 	Name        string `json:"name"`
 }
 
-func CreateTemplate(name string) (*template.Template, error) {
-	return template.New(path.Base(name)).
-		Funcs(template.FuncMap{
-			"title": func() string {
-				if GetConfig().Name == "" {
-					return "Site name"
-				}
-				return GetConfig().Name
-			},
-			"dev": func() bool {
-				return GetConfig().Dev
-			},
-		}).
-		ParseFiles([]string{
-			name,
-			"views/shared/layout.html",
-		}...)
-}
-
-type Template struct {
-	Title string
-	Dev   bool
-	Data  interface{}
-}
-
 var config Config
 var loaded bool = false
 
+// GetConfig returns a Config object created from the config.json file
 func GetConfig() Config {
 	if !loaded {
 		byteData, err := ioutil.ReadFile("config.json")

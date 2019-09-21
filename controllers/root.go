@@ -7,6 +7,7 @@ import (
 	"../utils"
 )
 
+// Root handles connections to the path /
 func Root(res http.ResponseWriter, req *http.Request) {
 	tmpl, err := utils.CreateTemplate("views/root/index.html")
 	if err != nil {
@@ -17,13 +18,13 @@ func Root(res http.ResponseWriter, req *http.Request) {
 	// db := models.GetDatabase()
 
 	var front []models.Example = []models.Example{
-		models.Example{Name: "bootstrap", Url: "https://getbootstrap.com"},
+		models.Example{Name: "bootstrap", URL: "https://getbootstrap.com"},
 	}
 
 	var server []models.Example = []models.Example{
-		models.Example{Name: "gorilla/mux", Url: "https://github.com/gorilla/mux"},
-		models.Example{Name: "gorilla/sessions", Url: "https://github.com/gorilla/sessions"},
-		models.Example{Name: "go-gorp/gorp", Url: "https://github.com/go-gorp/gorp"},
+		models.Example{Name: "gorilla/mux", URL: "https://github.com/gorilla/mux"},
+		models.Example{Name: "gorilla/sessions", URL: "https://github.com/gorilla/sessions"},
+		models.Example{Name: "go-gorp/gorp", URL: "https://github.com/go-gorp/gorp"},
 	}
 
 	// db.Select(&data, "select * from example Id")

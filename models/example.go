@@ -10,10 +10,14 @@ import (
 	"../utils"
 )
 
+// Example struct
 type Example struct {
-	Name, Url string
+	ID        int
+	Name, URL string
 }
 
+// GetDatabase returns a gorp.DbMap that can be used to query data in an sql database
+//   Allows for an entity framework (asp.net)-like interface to quering server data
 func GetDatabase() *gorp.DbMap {
 	db, err := sql.Open(utils.GetConfig().SQLDriver, utils.GetConfig().SQL)
 	if err != nil {
@@ -22,7 +26,9 @@ func GetDatabase() *gorp.DbMap {
 
 	dbmap := &gorp.DbMap{Db: db, Dialect: gorp.SqliteDialect{}}
 
-	dbmap.AddTableWithName(Example{}, "example").SetKeys(true, "Id")
+	// Add a table to the map, maps the Example row to the table "example",
+	//   SetKeys tells us what the primary key is
+	dbmap.AddTableWithName(Example{}, "example").SetKeys(true, "ID")
 
 	err = dbmap.CreateTablesIfNotExists()
 	if err != nil {

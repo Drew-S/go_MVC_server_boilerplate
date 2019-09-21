@@ -1,7 +1,8 @@
 {
-    "addr": "0.0.0.0:8080",
-    "ssl_cert_file": "",
-    "ssl_cert_key_file": "",
+    "http": "0.0.0.0:8080",
+    "https": "0.0.0.0:8443",
+    "ssl_cert_file": "/path/to/cert",
+    "ssl_cert_key_file": "/path/to/certkey",
     "dev": true,
     "sql_driver": "sqlite3",
     "sql_connect": "Database.db",

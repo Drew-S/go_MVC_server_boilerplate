@@ -11,13 +11,13 @@
             <li>Back end</li>
             <ul style="list-style-type: none;">
                 {{range .Server}}
-                    <li><a href="{{.Url}}">{{.Name}}</a></li>
+                    <li><a href="{{.URL}}">{{.Name}}</a></li>
                 {{end}}
             </ul>
             <li>Front end</li>
             <ul style="list-style-type: none;">
                 {{range .Front}}
-                    <li><a href="{{.Url}}">{{.Name}}</a></li>
+                    <li><a href="{{.URL}}">{{.Name}}</a></li>
                 {{end}}
             </ul>
         </ul>

@@ -35,7 +35,7 @@ func main() {
 				}
 				log.Printf("redirected to: %s", target)
 				http.Redirect(res, req, target, http.StatusPermanentRedirect)
-			},
+			}),
 		}
 
 		httpsServer := &http.Server{Addr: config.HTTPS, Handler: router}

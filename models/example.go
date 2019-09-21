@@ -5,6 +5,7 @@ import (
 	"log"
 
 	"github.com/go-gorp/gorp"
+	// Imported for gorp
 	_ "github.com/mattn/go-sqlite3"
 
 	"../utils"
